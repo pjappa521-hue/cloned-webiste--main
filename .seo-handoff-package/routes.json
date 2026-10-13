@@ -1,0 +1,49 @@
+{
+  "application": "The Internet Ads",
+  "router": "react-router-dom v7",
+  "baseCanonicalDomain": "https://theinternetads.com",
+  "routes": [
+    {
+      "path": "/",
+      "component": "Home (src/pages/Home.tsx)",
+      "pageName": "Homepage",
+      "inSitemap": true,
+      "purpose": "Primary landing page showcasing market analysis, ad films, and brand strategy for small businesses."
+    },
+    {
+      "path": "/training",
+      "component": "Training (src/pages/Training.tsx)",
+      "pageName": "Training Academy",
+      "inSitemap": true,
+      "purpose": "Career accelerator tracks (AI Engineer, Data Analytics, FDE, Performance Marketing) with 100% placement commitment."
+    },
+    {
+      "path": "/work",
+      "component": "Work (src/pages/Work.tsx)",
+      "pageName": "Work & Case Studies",
+      "inSitemap": true,
+      "purpose": "Portfolio showcases, commercial reels, brand campaigns, and client case studies."
+    },
+    {
+      "path": "/reviews",
+      "component": "Reviews (src/pages/Reviews.tsx)",
+      "pageName": "Client Reviews & Testimonials",
+      "inSitemap": true,
+      "purpose": "Verified client reviews, ROI metrics, and partner testimonials."
+    },
+    {
+      "path": "/home",
+      "component": "Home (src/pages/Home.tsx)",
+      "pageName": "Homepage Alias",
+      "inSitemap": false,
+      "purpose": "Convenience alias for / route."
+    },
+    {
+      "path": "*",
+      "component": "Home (src/pages/Home.tsx)",
+      "pageName": "Catch-all 404 Fallback",
+      "inSitemap": false,
+      "purpose": "Catches undefined URLs and renders the homepage experience."
+    }
+  ]
+}
