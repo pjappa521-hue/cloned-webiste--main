@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { seoService } from "../services/seoService";
 function SeoMeta() {
   const { pathname } = useLocation();
-  const [, setTick] = useState(0);
+  const [revision, setRevision] = useState(0);
   useEffect(() => {
     return seoService.subscribe(() => {
       setTick((t) => t + 1);
@@ -11,7 +11,7 @@ function SeoMeta() {
   }, []);
   useEffect(() => {
     const state = seoService.getState();
-    const page = state.pages[pathname] || state.pages["/"];
+    const page = state.pages[pathname] || state.pages["/404"] || state.pages["/"];
     if (!page) return;
     document.title = page.title;
     let metaDesc = document.querySelector('meta[name="description"]');
@@ -39,9 +39,9 @@ function SeoMeta() {
       el.setAttribute("content", content);
     };
     setMeta("name", "robots", page.robotsDirective || "index, follow");
-    if (state.global.googleSearchConsoleVerification) {
-      setMeta("name", "google-site-verification", state.global.googleSearchConsoleVerification);
-    }
+    const verificationTag = document.querySelector('meta[name="google-site-verification"]');
+    if (state.global.googleSearchConsoleVerification) setMeta("name", "google-site-verification", state.global.googleSearchConsoleVerification);
+    else verificationTag?.remove();
     setMeta("property", "og:title", page.ogTitle || page.title);
     setMeta("property", "og:description", page.ogDescription || page.description);
     setMeta("property", "og:url", page.canonical);
@@ -68,7 +68,7 @@ function SeoMeta() {
     } else if (scriptJsonLd) {
       scriptJsonLd.remove();
     }
-  }, [pathname]);
+  }, [pathname, revision]);
   return null;
 }
 export {

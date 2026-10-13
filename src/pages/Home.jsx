@@ -8,8 +8,11 @@ import {
 } from "lucide-react";
 import Marquee from "../components/Marquee";
 import ContactForm from "../components/ContactForm";
+
 import { Eyebrow, FadeUp, MaskLine } from "../components/Reveal";
 import { BELIEFS, SERVICES, TEAM } from "../data/content";
+
+import trainingAcademyImage from "../assets/images/training_academy_lab_1791823748458.png";
 function Home() {
   return /* @__PURE__ */ jsxs("main", { className: "min-h-screen", children: [
     /* @__PURE__ */ jsx(
@@ -136,7 +139,7 @@ function Home() {
         /* @__PURE__ */ jsx(
           "img",
           {
-            src: "/src/assets/images/training_academy_lab_1791823748458.jpg",
+            src:trainingAcademyImage,
             alt: "Training Academy Lab & Mentorship",
             loading: "lazy",
             referrerPolicy: "no-referrer",

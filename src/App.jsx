@@ -1,6 +1,6 @@
 import { jsx, jsxs } from "react/jsx-runtime";
 import { useEffect } from "react";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Navigate, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Cursor from "./components/Cursor";
@@ -10,6 +10,7 @@ import Training from "./pages/Training";
 import Work from "./pages/Work";
 import Reviews from "./pages/Reviews";
 import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -25,8 +26,8 @@ function MainLayout() {
       /* @__PURE__ */ jsx(Route, { path: "/training", element: /* @__PURE__ */ jsx(Training, {}) }),
       /* @__PURE__ */ jsx(Route, { path: "/work", element: /* @__PURE__ */ jsx(Work, {}) }),
       /* @__PURE__ */ jsx(Route, { path: "/reviews", element: /* @__PURE__ */ jsx(Reviews, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/home", element: /* @__PURE__ */ jsx(Home, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "*", element: /* @__PURE__ */ jsx(Home, {}) })
+      /* @__PURE__ */ jsx(Route, { path: "/home", element: /* @__PURE__ */ jsx(Navigate, { to: "/", replace: true }) }),
+      /* @__PURE__ */ jsx(Route, { path: "*", element: /* @__PURE__ */ jsx(NotFound, {}) })
     ] }) }),
     /* @__PURE__ */ jsx(Footer, {})
   ] });

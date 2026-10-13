@@ -21,12 +21,7 @@ const INITIAL_SEO_PAGES = {
         name: "The Internet Ads",
         url: "https://theinternetads.com",
         description: "Market analysis, ad films, internet ads and branding for small businesses.",
-        telephone: "+91 00000 00000",
-        email: "hello@theinternetads.com",
-        address: {
-          "@type": "PostalAddress",
-          addressCountry: "India"
-        }
+        email: "hello@theinternetads.com"
       },
       null,
       2
@@ -159,6 +154,19 @@ const INITIAL_SEO_PAGES = {
       null,
       2
     )
+  },
+  "/404": {
+    path: "/404",
+    pageName: "Not Found",
+    title: "Page Not Found | The Internet Ads",
+    description: "The requested page could not be found.",
+    canonical: "https://theinternetads.com/404",
+    ogTitle: "Page Not Found | The Internet Ads",
+    ogDescription: "The requested page could not be found.",
+    ogType: "website",
+    twitterCard: "summary",
+    robotsDirective: "noindex, follow",
+    inSitemap: false
   }
 };
 const INITIAL_GLOBAL_SEO = {
